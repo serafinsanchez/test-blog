@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Modern purple color palette */
+  --primary: #8b5cf6; /* violet-500 */
+  --primary-dark: #7c3aed; /* violet-600 */
+  --surface: #ffffff;
+  --surface-dark: #0c0a0f; /* Custom dark purple-tinted black */
+  --text: #1e1b4b; /* indigo-950 */
+  --text-dark: #f5f3ff; /* violet-50 */
+  --muted: #a78bfa; /* violet-400 */
+  --accent: #c084fc; /* purple-400 */
+  --border: #ddd6fe; /* violet-200 */
+  --highlight: #f0abfc; /* fuchsia-300 */
+  
+  /* Font family */
+  --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: var(--surface-dark);
+    --text: var(--text-dark);
+    --border: #4c1d95; /* violet-900 */
+    --primary: #a78bfa; /* violet-400 - brighter in dark mode */
+    --primary-dark: #8b5cf6; /* violet-500 */
+    --muted: #7c3aed; /* violet-600 */
+  }
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500; /* Medium weight */
+  color: var(--text);
+  background: var(--surface);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+p {
+  font-weight: 400; /* Regular weight for better readability in paragraphs */
+}
+
+code, pre {
+  font-family: var(--font-geist-mono);
+  background: #f5f3ff; /* violet-50 */
+}
+
+@media (prefers-color-scheme: dark) {
+  code, pre {
+    background: #2e1065; /* violet-950 */
+  }
+}
+
+/* Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Utility classes */
+.container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.prose {
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* Custom gradient backgrounds */
+.purple-gradient {
+  background: linear-gradient(135deg, #8b5cf6 0%, #c084fc 100%);
+}
+
+.purple-gradient-soft {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(192, 132, 252, 0.1) 100%);
+}
