@@ -9,7 +9,7 @@ export default function Home() {
               Welcome to My Portfolio
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-violet-100">
-              Full-stack developer crafting beautiful digital experiences
+              Full-stack developer crafting digital experiences
             </p>
             <button className="bg-white text-primary hover:bg-violet-100 transition-colors px-8 py-3 rounded-lg font-semibold">
               Get Started
