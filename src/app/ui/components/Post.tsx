@@ -17,22 +17,22 @@ export default function Post({ id, title, content, author, date, showFull = fals
 
   const postContent = (
     <>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-400 mb-4">
+      <h3 className="text-xl font-semibold mb-2 text-content">{title}</h3>
+      <p className="text-content/80 mb-4">
         {showFull ? content : isExpanded ? content : `${content.substring(0, 200)}...`}
       </p>
-      {!showFull && (
+      {!showFull && content.length > 200 && (
         <button 
           onClick={(e) => {
             e.preventDefault();
             setIsExpanded(!isExpanded);
           }}
-          className="text-blue-500 hover:text-blue-400 mb-4 text-sm"
+          className="text-primary hover:text-primary-dark mb-4 text-sm"
         >
           {isExpanded ? 'Show Less' : 'Read More'}
         </button>
       )}
-      <div className="flex justify-between items-center text-sm text-gray-500">
+      <div className="flex justify-between items-center text-sm text-content/60">
         <span>By {author}</span>
         <time>{date}</time>
       </div>
@@ -40,9 +40,9 @@ export default function Post({ id, title, content, author, date, showFull = fals
   );
 
   return (
-    <article className="border border-gray-700 rounded-lg p-6 hover:border-gray-500 transition-colors">
-      {id ? (
-        <Link href={`/blog/post/${id}`} className="block">
+    <article className="border border-border rounded-lg p-6 hover:border-primary/30 transition-colors bg-surface">
+      {id && !showFull ? (
+        <Link href={`/blog/posts/${id}`} className="block">
           {postContent}
         </Link>
       ) : (
